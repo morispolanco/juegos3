@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/ui/Layout';
 import Home from './pages/Home';
 import Expedition from './pages/Expedition';
+import Archives from './pages/Archives';
 
 // Placeholder pages
 const PlaceholderPage = ({ title }) => (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/expeditions" element={<Home />} /> {/* Redirect to home for now or map list */}
           <Route path="/expedition/:region" element={<Expedition />} />
-          <Route path="/archives" element={<PlaceholderPage title="Archivo de Códices" />} />
+          <Route path="/archives" element={<Archives />} />
           <Route path="/maps" element={<PlaceholderPage title="Mapas Secretos" />} />
           <Route path="/ranking" element={<PlaceholderPage title="Salón de Exploradores" />} />
           <Route path="/profile" element={<PlaceholderPage title="Perfil de Arqueólogo" />} />

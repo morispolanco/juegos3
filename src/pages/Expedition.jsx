@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { generateContent, prompts } from '../services/aiService';
 import GlyphDecoder from '../components/puzzles/GlyphDecoder';
 import RewardedAd from '../components/ads/RewardedAd';
+import InterstitialAd from '../components/ads/InterstitialAd';
 import { useAds } from '../hooks/useAds';
 import { Loader2, Skull, Trophy, Lightbulb } from 'lucide-react';
 
@@ -14,6 +15,7 @@ const Expedition = () => {
   
   const [loading, setLoading] = useState(true);
   const [showRewardedModal, setShowRewardedModal] = useState(false);
+  const [showInterstitialModal, setShowInterstitialModal] = useState(false);
   const [onAdComplete, setOnAdComplete] = useState(null);
   const [expedition, setExpedition] = useState(null);
   const [gameState, setGameState] = useState('briefing'); // briefing, puzzle, complete
@@ -54,7 +56,7 @@ const Expedition = () => {
       setPuzzleSolved(true);
       setTimeout(() => {
         setGameState('complete');
-        showInterstitial();
+        setShowInterstitialModal(true);
       }, 1500);
     }
   };
@@ -193,6 +195,10 @@ const Expedition = () => {
         isOpen={showRewardedModal} 
         onClose={() => setShowRewardedModal(false)}
         onComplete={handleAdFinished}
+      />
+      <InterstitialAd 
+        isOpen={showInterstitialModal} 
+        onClose={() => setShowInterstitialModal(false)} 
       />
     </div>
   );
