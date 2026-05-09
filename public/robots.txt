@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://el-archivo-maya.vercel.app/sitemap.xml
