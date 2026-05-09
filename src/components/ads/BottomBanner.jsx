@@ -14,7 +14,7 @@ const BottomBanner = () => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center py-6 mt-10 bg-jungle-deep/80 border-t border-jade/20 backdrop-blur-sm">
+    <div className="w-full flex justify-center py-4 my-2 overflow-hidden bg-black/20 border-y border-jade/10">
       <div ref={adRef} className="max-w-full">
         <ins 
           className="p5e0143515c"

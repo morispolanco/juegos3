@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   
   // Define which paths show which banners
   const showTopBanner = ['/', '/menu', '/expeditions'].includes(location.pathname);
-  const showBottomBanner = ['/results', '/profile', '/shop', '/archives'].includes(location.pathname) || location.pathname.startsWith('/expedition/');
+  const showBottomBanner = true; // Make it persistent as requested
 
   return (
     <div className="min-h-screen flex flex-col">
