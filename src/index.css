@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-jade: #00A86B;
+  --color-jade-dark: #004B30;
+  --color-mayan-gold: #D4AF37;
+  --color-mayan-stone: #4A4A4A;
+  --color-jungle-deep: #0B1A0E;
+  --color-fire-glow: #FF4500;
+  
+  --font-mayan: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-jungle-deep text-stone-200 font-mayan overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(0, 168, 107, 0.05) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(11, 26, 14, 0.95), rgba(11, 26, 14, 1));
+  }
+
+  h1, h2, h3, .font-serif {
+    @apply font-serif text-mayan-gold;
+  }
+}
+
+@layer components {
+  .maya-card {
+    @apply bg-mayan-stone/20 backdrop-blur-md border border-jade/30 rounded-xl p-6 shadow-2xl relative overflow-hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+  }
+
+  .maya-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-10 pointer-events-none;
+    background: radial-gradient(circle at 0% 0%, #00A86B, transparent 40%);
+  }
+
+  .btn-maya {
+    @apply bg-jade px-6 py-3 rounded-full text-jungle-deep font-bold transition-all duration-300 hover:bg-mayan-gold hover:scale-105 active:scale-95 shadow-lg shadow-jade/20 flex items-center justify-center gap-2;
+  }
+
+  .btn-maya-outline {
+    @apply border-2 border-jade text-jade px-6 py-3 rounded-full font-bold transition-all duration-300 hover:bg-jade hover:text-jungle-deep flex items-center justify-center gap-2;
+  }
+
+  .glyph-container {
+    @apply grid grid-cols-4 gap-4 p-4 bg-black/40 rounded-lg border border-jade/20;
+  }
+
+  .parchment-text {
+    @apply text-stone-400 leading-relaxed italic;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-jungle-deep;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-jade/30 rounded-full hover:bg-jade/50;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+}
+
+.pulse-gold {
+  animation: pulse-gold 3s ease-in-out infinite;
+}
